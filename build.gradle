@@ -28,5 +28,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+
+
 // Define the main class for the application
 mainClassName = 'First.App'
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.galvanize.Application'
+        )
+    }
+}
+
+
